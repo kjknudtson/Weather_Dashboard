@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: blue;
+    color: white;
+    width: 100%;
+    height: 125px;
+    font-size: 50px;
+    text-align: center;
+
+}
+
+
+.headerTitle {
+    padding-top: 10px;
+
+
+
+
+}
+
+aside {
+    margin-top: 25px;
+    margin-left: 25px;
+    background-color: lightgrey;
+    width: 300px;
+    height: 585px;
+    float: left;
+}
+
+input {
+   height: 40px;
+   width: 175px;
+   font-size: 17px;
+}
+
+.submitBtn {
+   height: 40px;
+   width: 75px;
+   background-color: blue;
+   color: white;
+   font-size: 15px;
+   outline: none;
+}
+
+.cityBtn {
+    height: 40px;
+   width: fit-content;
+   background-color: blue;
+   color: white;
+   font-size: 15px;
+    margin-top: 15px;
+    margin-left: 22px;
+    float: left;
+    clear: both;
+    padding: 10px;
+    outline: none;
+    border-radius: 8px;
+
+}
+
+.cityBtn:hover {
+    background-color: cyan;
+    color: darkcyan;
+}
+
+form {
+    margin-left: 22px;
+    padding-top: 15px;
+
+}
+
+.todaysWX {
+    width: 1160px;
+    height: 325px;
+    background-color: lightgrey;
+    float: right;
+    margin-top: 25px;
+    margin-right: 25px;
+
+
+}
+
+.todayHeader {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 30px;
+    
+}
+
+.todayTemp {
+    
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.todayHumid {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.todayWind {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.todayUV {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 20px;
+
+}
+
+.fiveDayForecast {
+    width: 1160px;
+    height: 235px;
+    background-color: lightgrey;
+    clear: right;
+    float: right;
+    margin-top: 25px;
+    margin-right: 25px;
+
+
+}
+
+.clearBtn {
+    height: 40px;
+   width: fit-content;
+   background-color: red;
+   color: white;
+   font-size: 15px;
+   padding: 10px;
+   border-radius: 12px;
+   outline: none;
+
+}
+
+.clearSpace {
+    clear: left;
+    float: left;
+    margin-left: 22px;
+    margin-top: 10px;
+}
+
+.lowUV {
+    background-color: limegreen;
+
+    width: fit-content;
+}
+
+.moderateUV {
+    background-color: yellow;
+    width: fit-content;
+}
+
+.highUV {
+    background-color: orange;
+    width: fit-content;
+}
+
+.severeUV {
+    background-color: red;
+    color: white;
+    width: fit-content;
+}
+
