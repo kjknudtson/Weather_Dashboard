@@ -62,7 +62,7 @@ function renderButtons() {
 
       var icon = response.weather[0].icon;
 
-      var iconURL = "http://openweathermap.org/img/wn/" + icon + "@2x.png";
+      var iconURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
 
       $(wxImage).attr('src', iconURL);
 
@@ -159,7 +159,7 @@ function getUVIndex(key, lat, lon) {
 
 function getFiveDayForecast(lat, lon, key) {
 
-  var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + key;
+  var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + key;
 
   $.ajax({
     url: fiveDayURL,
@@ -167,7 +167,69 @@ function getFiveDayForecast(lat, lon, key) {
   }).then(function(response) {
       console.log(response);
 
+      $(".fiveDayForecast").empty();
 
+      for (var i = 5; i < 38; i = i + 8) {
+
+        var dayOneDiv = $("<div>");
+
+        dayOneDiv.addClass("dailyForecast");
+
+        var dayOneDate = moment(response.list[i].dt_txt).format('L');
+
+        var dayOneDateP = $("<p>").text(dayOneDate);
+        
+        dayOneDateP.css("padding-top", "5px");
+
+        dayOneDateP.css("font-size", "25px");
+
+        $(dayOneDiv).append(dayOneDateP);
+
+
+        var wxDailyImage = $("<img>");
+
+        var dayOneIcon = response.list[i].weather[0].icon;
+
+        var dailyIconURL = "https://openweathermap.org/img/wn/" + dayOneIcon + ".png";
+
+        $(wxDailyImage).attr('src', dailyIconURL);
+
+        wxDailyImage.css("padding-top", "5px");
+
+        $(dayOneDiv).append(wxDailyImage);
+
+
+
+        var dayOneTemp = response.list[i].main.temp;
+
+        var dayOneTempP = $("<p>").text("Temp (Fahrenheit): " + dayOneTemp.toFixed(0));
+
+        dayOneTempP.css("padding-top", "30px");
+
+        $(dayOneDiv).append(dayOneTempP);
+
+
+
+        var dayOneHumid = response.list[i].main.humidity;
+
+        var dayOneHumidP = $("<p>").text("Humidity: " + dayOneHumid + "%");
+
+        dayOneHumidP.css("padding-top", "5px");
+
+        $(dayOneDiv).append(dayOneHumidP);
+
+
+        var dayOneWind = response.list[i].wind.speed;
+
+        var dayOneWindP = $("<p>").text("Wind: " + dayOneWind + " MPH");
+
+        dayOneWindP.css("padding-top", "5px");
+
+        $(dayOneDiv).append(dayOneWindP);
+
+        $(".fiveDayForecast").append(dayOneDiv);
+        
+      }
 
   });
 }
@@ -195,6 +257,8 @@ $(".clearBtn").on("click", function(event) {
   $("#cityBtns").empty();
 
   $(".todaysWX").empty();
+
+  $(".fiveDayForecast").empty();
 
   citiesArray = [];
 

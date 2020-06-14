@@ -170,3 +170,16 @@ form {
     width: fit-content;
 }
 
+.dailyForecast {
+    float: left;
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 214px;
+    height: 205px;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+
+}
+
