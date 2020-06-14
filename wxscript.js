@@ -143,7 +143,7 @@ function getUVIndex(key, lat, lon) {
       indexP.addClass("highUV");
     }
 
-    if (indexUV > 7.5 && indexUV < 11) {
+    if (indexUV > 7.5 && indexUV < 20) {
       indexP.addClass("severeUV");
     }
     
