@@ -117,7 +117,7 @@ function renderButtons() {
 
 function getUVIndex(key, lat, lon) {
 
-  var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + key + "&lat=" + lat + "&lon=" + lon;
+  var uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + key + "&lat=" + lat + "&lon=" + lon;
 
   $.ajax({
     url: uvURL,
@@ -159,7 +159,7 @@ function getUVIndex(key, lat, lon) {
 
 function getFiveDayForecast(lat, lon, key) {
 
-  var fiveDayURL = "api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + key;
+  var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + key;
 
   $.ajax({
     url: fiveDayURL,
