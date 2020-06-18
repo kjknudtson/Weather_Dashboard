@@ -9,30 +9,55 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
+    <!-- Dashboard Header -->
     <header class="headerTitle">
+
         <h1>Weather Dashboard</h1>
+
     </header>
+
+    <!-- Container holding everything -->
     <div class="container">
+
+        <!-- Space containing input form and created City Buttons -->
         <aside class="chooseCity">
+
+            <!-- City input form -->
             <form id="cityForm">
+
                 <input type="text" id="city-input" placeholder="Choose a City">
+
+                <!-- Submit Button -->
                 <button id="submit-btn" class="submitBtn">Search</button>
+
             </form>
+
+            
             <div class="clearSpace">
+                <!-- Clear History Button -->
                 <button class="clearBtn">Clear History</button>
+
             </div>
+
+            <!-- Space for City Buttons -->
             <div id="cityBtns"></div>
             
+        
         </aside>
+
+        <!-- Area containing today's WX information for chosen cities -->
         <div class="todaysWX">
             
             
         </div>
+
+        <!-- Space showing five day forecast for chosen city -->
         <div class="fiveDayForecast">
          
         </div>
 
     </div>
+    
     <script src="wxscript.js"></script>
 </body>
 </html>

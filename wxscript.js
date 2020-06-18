@@ -1,12 +1,13 @@
 
 
 
-
-
+// Variable for saving chosen cities from input form to local storage
 var citiesArray = JSON.parse(localStorage.getItem("cityNames")) || [];
 
+// Variable for today's date from Moment.js
 var date = moment().format('L');
 
+// Function definition for function to create a button depending on input forms content
 function renderButtons() {
 
     
@@ -30,6 +31,7 @@ function renderButtons() {
     }
   }
 
+  // Function definition for displaying that day's WX and five day forecast
   function displayCityWX() {
 
     var city = $(this).attr("data-name");
@@ -115,6 +117,7 @@ function renderButtons() {
 
   }
 
+// Function definition to find UV Index for chosen city  
 function getUVIndex(key, lat, lon) {
 
   var uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + key + "&lat=" + lat + "&lon=" + lon;
@@ -143,7 +146,7 @@ function getUVIndex(key, lat, lon) {
       indexP.addClass("highUV");
     }
 
-    if (indexUV > 7.5 && indexUV < 20) {
+    if (indexUV > 7.5 && indexUV < 15) {
       indexP.addClass("severeUV");
     }
     
@@ -156,7 +159,7 @@ function getUVIndex(key, lat, lon) {
 
 }
 
-
+// Function definition to get five day forecast for chosen city
 function getFiveDayForecast(lat, lon, key) {
 
   var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + key;
@@ -234,23 +237,25 @@ function getFiveDayForecast(lat, lon, key) {
   });
 }
 
-
+// Submit button
 $("#submit-btn").on("click", function(event) {
     event.preventDefault();
-    // This line grabs the input from the textbox
+    
     var cityName = $("#city-input").val().trim();
 
-    // Adding movie from the textbox to our array
+    
     citiesArray.push(cityName);
 
     localStorage.setItem("cityNames", JSON.stringify(citiesArray));
 
     $('#cityForm').children('input').val('')
 
-    // Calling renderButtons which handles the processing of our movie array
+    
     renderButtons();
 });
 
+
+// Clear History button
 $(".clearBtn").on("click", function(event) {
   event.preventDefault();
 
@@ -267,6 +272,9 @@ $(".clearBtn").on("click", function(event) {
 
 })
 
+// Render Buttons funcation call
 renderButtons();
 
+
+// City buttons (when created)
 $(document).on("click", ".cityBtn", displayCityWX);
